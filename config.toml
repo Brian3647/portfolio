@@ -31,7 +31,6 @@ show_menu_items = 5
 full_width = false
 center = false
 # favicon = "favicon.png"
-og_preview_img = "Brian.png"
 logo_text = "Brian3647"
 logo_home_link = "/"
 main_menu = [
