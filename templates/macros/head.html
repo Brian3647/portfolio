@@ -1,0 +1,64 @@
+{#- TODO:
+- [x] add rss
+- [x] favicons
+- [x] media preview
+- [ ] twitter
+- [ ] maybe google adsense
+-#}
+
+{% macro styling() %}
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+    {% if config.extra.theme_color != "orange" -%}
+        {% set color = "color/" ~ config.extra.theme_color ~ ".css" -%}
+        <link rel="stylesheet" href="{{ get_url(path=color) }}">
+    {%- else -%}
+        <link rel="stylesheet" href=" {{ get_url(path="color/orange.css") }}">
+    {% endif %}
+    {%- if config.extra.custom_css is defined -%}
+        <link rel="stylesheet" href="{{ get_url(path="custom.css") }}">
+    {% endif %}
+{% endmacro styling %}
+
+{% macro favicon() %}
+    {%- if config.extra.favicon is defined -%}
+        <link rel="shortcut icon" href="{{ get_url(path=config.extra.favicon) }}" type="image/x-icon" />
+    {%- endif -%}
+{% endmacro favicon %}
+
+{% macro rss() %}
+    {%- if config.generate_feed -%}
+        <link rel="alternate" type="application/rss+xml" title="{{ config.title }} RSS" href="{{ get_url(path="rss.xml") }}">
+    {%- endif -%}
+{% endmacro rss %}
+
+{% macro general_meta() %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="{{ config.description }}"/>
+{% endmacro general_meta %}
+
+{% macro math() %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+	{% if config.extra.katex_enable %}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+	    {% if config.extra.katex_auto_render %}
+			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+	        onload="renderMathInElement(document.body);"></script>
+	    {% endif %}
+	{% endif %}
+{% endmacro math %}
+
+{% macro ganalytics() %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E22MG5SJXW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E22MG5SJXW');
+</script>
+{% endmacro ganalytics %}

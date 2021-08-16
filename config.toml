@@ -1,0 +1,48 @@
+base_url = "/"
+
+title = "Brian3647"
+description = "Personal blog"
+default_language = "en"
+generate_feed = true
+feed_filename = "rss.xml"
+
+taxonomies = [
+	{name = "tags"},
+	{name = "categories"},
+]
+
+compile_sass = true
+build_search_index = false
+
+[markdown]
+# Whether to do syntax highlighting
+highlight_code = true
+highlight_theme = "gruvbox-dark"
+render_emoji = true
+smart_punctuation = true
+
+[extra]
+author = "Brian3647"
+show_author = true
+show_categories = true
+show_tags = true
+theme_color = "gruvbox"
+show_menu_items = 5
+full_width = false
+center = false
+# favicon = "favicon.png"
+og_preview_img = "Brian.png"
+logo_text = "Brian3647"
+logo_home_link = "/"
+main_menu = [
+	{url="/about/", name="about"},
+	{url="/contact/", name="contact"},
+]
+
+menu_more = "show more"
+read_more = "read more"
+read_other_posts = "read other posts"
+
+# math support
+katex_enable = true
+katex_auto_render = true
