@@ -35,6 +35,7 @@ logo_home_link = "/"
 main_menu = [
 	{url="/about/", name="about"},
 	{url="/contact/", name="contact"},
+	{url="/portfolio/", name="portfolio"}
 ]
 
 menu_more = "show more"
