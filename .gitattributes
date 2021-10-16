@@ -1,1 +1,3 @@
-static/assets/js/main.js linguist-language=Text
+*.html linguist-language=Text
+*.scss linguist-language=Text
+*.js linguist-language=Text
